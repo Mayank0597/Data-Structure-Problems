@@ -28,6 +28,7 @@ public class IsArraySorted {
 		for(int i=0;i<n;i++) {
 			System.out.print(arr[i]+" ");
 		}
+		System.out.println();
 		boolean var = isSorted(arr);
 		if(var==true) {
 			System.out.println("Array is Sorted");
