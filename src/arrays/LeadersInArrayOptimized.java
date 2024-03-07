@@ -3,6 +3,7 @@ package arrays;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class LeadersInArrayOptimized {
 
@@ -21,6 +22,9 @@ public class LeadersInArrayOptimized {
 		for(int i:ans) {
 			System.out.print(i+" ");
 		}
+//		Scanner sc = new Scanner(System.in);
+//		String s = sc.nextLine();
+//		System.out.println(s);
 
 	}
 
