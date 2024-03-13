@@ -2,6 +2,7 @@ package regex;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 public class Regex2 {
 
@@ -30,4 +31,4 @@ public class Regex2 {
 
 	}
 
-}
+
