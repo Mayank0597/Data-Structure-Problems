@@ -1,5 +1,7 @@
 package linkedList;
 
+import java.util.Scanner;
+
 public class LL {
 	 Node head;
 	   private int size;
@@ -11,11 +13,11 @@ public class LL {
 
 
 	   public class Node {
-	       String data;
+	       int data;
 	       Node next;
 
 
-	       Node(String data) {
+	       Node(int data) {
 	           this.data = data;
 	           this.next = null;
 	           size++;
@@ -23,14 +25,14 @@ public class LL {
 	   }
 
 
-	   public void addFirst(String data) {
+	   public void addFirst(int data) {
 	       Node newNode = new Node(data);
 	       newNode.next = head;
 	       head = newNode;
 	   }
 
 
-	   public void addLast(String data) {
+	   public void addLast(int data) {
 	       Node newNode = new Node(data);
 
 
@@ -105,30 +107,68 @@ public class LL {
 	   public int getSize() {
 	       return size;
 	   }
-	 
-
-
-
+	   
+	   public void reverse() {
+		   if(head==null || head.next==null) {
+			   return;
+		   }
+		   Node prevNode=head;
+		   Node currNode=head.next;
+		   while(currNode!=null) {
+			   Node nextNode=currNode.next;
+			   currNode.next=prevNode;
+			   prevNode=currNode;
+			   currNode=nextNode;
+		   }
+		   head.next=null;
+		   head=prevNode;
+	   }
+	   
+	   public Node removeNthNodeFromLast(int n) {
+		   if(head==null && head.next==null) {
+			   return null;
+		   }
+		   int size=getSize();
+		   int i=0;
+		   Node temp=head;
+		   while(i<(size-n)) {
+			   temp=temp.next;
+			   i++;
+		   }
+		   temp.next=temp.next.next;
+		   return temp;
+	   }
 
 	   public static void main(String args[]) {
+		   Scanner sc = new Scanner(System.in);
 	       LL list = new LL();
-	       list.addLast("is");
-	       list.addLast("a");
-	       list.addLast("list");
+	       list.addLast(4);
+	       list.addLast(5);
+	       list.addLast(6);
+	       //list.printList();
+	       list.addFirst(3);
 	       list.printList();
-
-
-	       list.addFirst("this");
-	       list.printList();
-	       System.out.println(list.getSize()); 
-
-
+	       System.out.println("Size of LinkedList is "+list.getSize());
+	 
 	       list.removeFirst();
 	       list.printList();
 
 
 	       list.removeLast();
 	       list.printList();
+	       
+	       list.addFirst(3);
+	       list.addFirst(2);
+	       list.addFirst(1);
+	       list.printList();
+	       
+	       list.reverse();
+	       System.out.println("Reversed LinkedList is");
+	       list.printList();
+	       
+	       System.out.println("Enter nth node from last which is to be removed");
+	       Node n = list.removeNthNodeFromLast(sc.nextInt());
+	       System.out.println("Removed element is "+n.data);
 	   }
 	}
 
