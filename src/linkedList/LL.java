@@ -138,6 +138,23 @@ public class LL {
 		   temp.next=temp.next.next;
 		   return temp;
 	   }
+	   
+	   public static int getNode(Node llist, int positionFromTail) {
+		    // Write your code here
+		    int count=0;
+		    Node temp=llist;
+		    while(temp!=null){
+		        temp=temp.next;
+		        count++;
+		    }
+		    int pos=0;
+		    while(pos!=(count-positionFromTail-1)){
+		        llist=llist.next;
+		        pos++;
+		    }
+		    return llist.data;
+
+		    }
 
 	   public static void main(String args[]) {
 		   Scanner sc = new Scanner(System.in);
@@ -169,6 +186,10 @@ public class LL {
 	       System.out.println("Enter nth node from last which is to be removed");
 	       Node n = list.removeNthNodeFromLast(sc.nextInt());
 	       System.out.println("Removed element is "+n.data);
+	       
+	       int data = getNode(list.head,sc.nextInt());
+	       System.out.println(data);
+	       
 	   }
 	}
 
